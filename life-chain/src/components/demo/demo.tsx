@@ -10,15 +10,15 @@ import {
 export default function Demo() {
   const [gridDom, setGridDom] = useState([])
   useEffect(() => {
-    let intervalId
+    let intervalId: any
     if (document) {
       const grid = getGrid('.demo-root')
-      const generateGridDom = (gridSource) => {
-        return gridSource.map((row, i) => {
+      const generateGridDom = (gridSource: any) => {
+        return gridSource.map((row: any, i: number) => {
           return <div key={ i } className="flex flex-row"
           >
             {
-              row.map((cell, j) => {
+              row.map((cell: any, j: number) => {
               const value = cell ? 2 : Math.round(Math.random())
               const key = `${i}-${j}`
               const style = {

@@ -5,10 +5,10 @@ export const CELL_SIZE = {
 export const INTERVAL_IN_MS = 1000
 
 const getAvailableArea = (selector = 'body') => {
-  const element = document.querySelector(selector)
+  const element: HTMLElement | HTMLBodyElement | null = document.querySelector(selector)
   return {
-    width: element.clientWidth ?? element.offsetWidth,
-    height: element.clientHeight ?? element.offsetHeight,
+    width: element?.clientWidth ?? element?.offsetWidth ?? 1,
+    height: element?.clientHeight ?? element?.offsetHeight ?? 1,
   }
 }
 

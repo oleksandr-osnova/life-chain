@@ -57,11 +57,11 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: |
-          cd ./life-chain
-          pnpm install
+        working-directory: ./life-chain
+        run: pnpm install
 
       - name: Build site
+        working-directory: ./life-chain
         run: pnpm build
 
       - name: Setup Pages

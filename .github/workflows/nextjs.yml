@@ -64,6 +64,7 @@ jobs:
 #          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
 #          #
 #          # You may remove this line if you want to manage the configuration yourself.
+#          # Currently broken as it rewrite next config then broke build upload step (build folder not found)
 #          static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v4
@@ -85,14 +86,6 @@ jobs:
       - name: Read next.config.mjs
         run: |
           cat next.config.mjs
-#      - name: Create directory aaaForCheck
-#        run: |
-#          mkdir ./aaaForCheck
-#      - name: Show directory 2
-#        run: |
-#          ls -la
-#      - name: Static HTML export with Next.js
-#        run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

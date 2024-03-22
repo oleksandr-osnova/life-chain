@@ -66,6 +66,7 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           # Currently broken as it rewrite next config then broke build upload step (build folder not found)
           static_site_generator: next
+          generator_config_file: ./next.config.mjs
       - name: Restore cache
         uses: actions/cache@v4
         with:

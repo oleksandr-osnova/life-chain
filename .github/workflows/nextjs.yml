@@ -64,7 +64,7 @@ jobs:
           # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
           #
           # You may remove this line if you want to manage the configuration yourself.
-          # Currently broken as it rewrite next config then broke build upload step (build folder not found)
+          # Better to enter generator_config_file manually
           static_site_generator: next
           generator_config_file: ./next.config.mjs
       - name: Restore cache
@@ -81,15 +81,6 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Show directory
-        run: |
-          ls -la
-#      - name: Read next.config.mjs
-#        run: |
-#          cat next.config.mjs
-#      - name: Read next.config.js
-#        run: |
-#          cat next.config.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

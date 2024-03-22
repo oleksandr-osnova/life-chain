@@ -84,12 +84,12 @@ jobs:
       - name: Show directory
         run: |
           ls -la
-      - name: Read next.config.mjs
-        run: |
-          cat next.config.mjs
-      - name: Read next.config.js
-        run: |
-          cat next.config.js
+#      - name: Read next.config.mjs
+#        run: |
+#          cat next.config.mjs
+#      - name: Read next.config.js
+#        run: |
+#          cat next.config.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

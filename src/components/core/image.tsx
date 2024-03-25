@@ -5,6 +5,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 type ImageProps = {
   src: string | StaticImport;
   alt: string;
+  [key: string]: any;
 }
 export default function Image(props: ImageProps) {
   const { src, ...restImageProps } = props
@@ -16,10 +17,14 @@ export default function Image(props: ImageProps) {
   })
 
   return (
-    <img
-      alt={ undefined }
-      { ...rest }
-    />
+    <>
+      <picture>
+        <img
+          alt=""
+          { ...rest }
+        />
+      </picture>
+    </>
   )
 }
 
